@@ -5,6 +5,7 @@
 
 #include "camera_info_manager/camera_info_manager.hpp"
 #include "rclcpp/executors.hpp"
+#include "rclcpp/experimental/executors/events_executor/events_executor.hpp"
 #include "rclcpp/node.hpp"
 #include "sensor_msgs/msg/image.hpp"
 #include "stereo_msgs/msg/disparity_image.hpp"
@@ -114,6 +115,7 @@ std::tuple<dai::Pipeline, int, int> createPipeline(
 
 int main(int argc, char** argv) {
     rclcpp::init(argc, argv);
+    rclcpp::experimental::executors::EventsExecutor exec;
     auto node = rclcpp::Node::make_shared("stereo_node");
     bool rectify;
     std::string tfPrefix, mode, monoResolution;
@@ -239,7 +241,6 @@ int main(int argc, char** argv) {
             rightCameraInfo,
             "stereo");
         depthPublish.addPublisherCallback();
-        rclcpp::spin(node);
     } else {
         dai::rosBridge::DisparityConverter dispConverter(tfPrefix + "_right_camera_optical_frame", 880, 7.5, 20, 2000);
         dai::rosBridge::BridgePublisher<stereo_msgs::msg::DisparityImage, dai::ImgFrame> dispPublish(
@@ -251,7 +252,9 @@ int main(int argc, char** argv) {
             rightCameraInfo,
             "stereo");
         dispPublish.addPublisherCallback();
-        rclcpp::spin(node);
     }
+    exec.add_node(node);
+    exec.spin();
+    rclcpp::shutdown();
     return 0;
 }

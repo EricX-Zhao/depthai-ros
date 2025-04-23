@@ -61,6 +61,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(stereo_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
+find_package(rclcpp_components REQUIRED)
 
 set(dependencies
   camera_info_manager
@@ -113,10 +114,43 @@ target_compile_definitions(stereo_inertial_node PRIVATE BLOB_NAME="${tiny_yolo_v
 target_compile_definitions(tracker_yolov4_node PRIVATE BLOB_NAME="${tiny_yolo_v4_blob_name}")
 target_compile_definitions(tracker_yolov4_spatial_node PRIVATE BLOB_NAME="${tiny_yolo_v4_blob_name}")
 
+# component
+add_library(stereo_imu_component SHARED
+  src/stereo_inertial_component.cpp
+)
+target_link_libraries(stereo_imu_component
+  PUBLIC
+    depthai::core
+    opencv_imgproc
+    opencv_highgui
+    camera_info_manager::camera_info_manager
+    cv_bridge::cv_bridge
+    ${depthai_ros_msgs_TARGETS}
+    depthai_bridge::depthai_bridge
+    rclcpp::rclcpp
+    rclcpp_components::component
+    ${sensor_msgs_TARGETS}
+    ${stereo_msgs_TARGETS}
+    ${std_msgs_TARGETS}
+    ${vision_msgs_TARGETS}
+)
+rclcpp_components_register_nodes(
+  stereo_imu_component
+  "OAKStereoImu"
+)
+
 if($ENV{ROS_DISTRO} STREQUAL "galactic")
   target_compile_definitions(rgb_stereo_node PRIVATE IS_GALACTIC)
 endif()
 
+ament_export_targets(stereo_imu_component)
+
+install(TARGETS stereo_imu_component
+  EXPORT stereo_imu_component
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
+)
 
 install(DIRECTORY params DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY rviz DESTINATION share/${PROJECT_NAME})

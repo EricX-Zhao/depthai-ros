@@ -1,0 +1,33 @@
+/**:
+  ros__parameters:
+    camera:
+      i_enable_imu: true
+      i_nn_type: none
+      i_pipeline_type: Stereo
+      # i_enable_sync: true
+    imu:
+      i_acc_freq: 200
+      i_gyro_freq: 200
+      i_gyro_cov: 0.01
+      i_message_type: IMU
+      i_batch_report_threshold: 5
+      i_max_batch_reports: 10
+      i_update_ros_base_time_on_ros_msg: true
+    # left:
+    #   i_fps: 20.0
+    #   i_resolution: 720P
+    #   # i_synced: true
+    #   # i_fsync_trigger: true
+    #   # i_publish_compressed: true
+    #   i_publish_topic: true
+    #   i_update_ros_base_time_on_ros_msg: true
+    # right:
+    #   i_fps: 20.0
+    #   i_resolution: 720P
+    #   # i_synced: true
+    #   # i_fsync_trigger: true
+    #   # i_publish_compressed: true
+    #   i_publish_topic: true
+    #   i_update_ros_base_time_on_ros_msg: true
+    stereo:
+      i_publish_synced_rect_pair: true
