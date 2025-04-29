@@ -56,10 +56,10 @@ def generate_launch_description():
     resourceBaseFolder      = LaunchConfiguration('resourceBaseFolder', default = default_resources_path)
 
 
-    stereo_fps            = LaunchConfiguration('stereo_fps', default = 20)
+    stereo_fps            = LaunchConfiguration('stereo_fps', default = 10)
     confidence            = LaunchConfiguration('confidence', default = 200)
     LRchecktresh          = LaunchConfiguration('LRchecktresh', default = 5)
-    monoResolution        = LaunchConfiguration('monoResolution', default = '400p')
+    monoResolution        = LaunchConfiguration('monoResolution', default = '800p')
     
     rgbResolution           = LaunchConfiguration('rgbResolution',  default = '1080p')
     rgbScaleNumerator       = LaunchConfiguration('rgbScaleNumerator',  default = 2)
