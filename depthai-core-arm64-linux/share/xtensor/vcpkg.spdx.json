@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/xtensor-arm64-linux-0.26.0-db0f3bce-626b-4ed0-b593-0339a481dc17",
-  "name": "xtensor:arm64-linux@0.26.0 46ef24d967e9a66a8de8ade843b5f4bb20fbdd85b6a5122108d9fc4273111176",
+  "documentNamespace": "https://spdx.org/spdxdocs/xtensor-arm64-linux-0.26.0-816cf97d-751b-4902-9190-bde428961f18",
+  "name": "xtensor:arm64-linux@0.26.0 8a126b8134ab1f60e6dbaa75cb8cb3f799376659458cba2068cc28a738a0f1bc",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-2025-05-19-ece4c0f6b8fae9e94513d544c7aa753dd2c82337"
     ],
-    "created": "2026-02-05T13:18:29Z"
+    "created": "2026-02-05T21:02:46Z"
   },
   "relationships": [
     {
@@ -48,6 +48,11 @@
       "relatedSpdxElement": "SPDXRef-port"
     },
     {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "DEPENDENCY_MANIFEST_OF",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
       "spdxElementId": "SPDXRef-file-1",
       "relationshipType": "CONTAINED_BY",
       "relatedSpdxElement": "SPDXRef-port"
@@ -55,11 +60,6 @@
     {
       "spdxElementId": "SPDXRef-file-2",
       "relationshipType": "CONTAINED_BY",
-      "relatedSpdxElement": "SPDXRef-port"
-    },
-    {
-      "spdxElementId": "SPDXRef-file-2",
-      "relationshipType": "DEPENDENCY_MANIFEST_OF",
       "relatedSpdxElement": "SPDXRef-port"
     },
     {
@@ -84,7 +84,7 @@
     {
       "name": "xtensor:arm64-linux",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "46ef24d967e9a66a8de8ade843b5f4bb20fbdd85b6a5122108d9fc4273111176",
+      "versionInfo": "8a126b8134ab1f60e6dbaa75cb8cb3f799376659458cba2068cc28a738a0f1bc",
       "downloadLocation": "NONE",
       "licenseConcluded": "BSD-3-Clause",
       "licenseDeclared": "NOASSERTION",
@@ -108,32 +108,8 @@
   ],
   "files": [
     {
-      "fileName": "./portfile.cmake",
-      "SPDXID": "SPDXRef-file-0",
-      "checksums": [
-        {
-          "algorithm": "SHA256",
-          "checksumValue": "18ed53d97ea9b0502f1512e86ec220c21f48e6c1be69c974c9ee70baad178faf"
-        }
-      ],
-      "licenseConcluded": "NOASSERTION",
-      "copyrightText": "NOASSERTION"
-    },
-    {
-      "fileName": "./fix-find-xsimd.patch",
-      "SPDXID": "SPDXRef-file-1",
-      "checksums": [
-        {
-          "algorithm": "SHA256",
-          "checksumValue": "6abbf2abc4f19cc12e94b975d94829baf2c7d52d94a7995347357f61fdaa60a7"
-        }
-      ],
-      "licenseConcluded": "NOASSERTION",
-      "copyrightText": "NOASSERTION"
-    },
-    {
       "fileName": "./vcpkg.json",
-      "SPDXID": "SPDXRef-file-2",
+      "SPDXID": "SPDXRef-file-0",
       "checksums": [
         {
           "algorithm": "SHA256",
@@ -145,11 +121,35 @@
     },
     {
       "fileName": "./fix-find-tbb-and-install-destination.patch",
-      "SPDXID": "SPDXRef-file-3",
+      "SPDXID": "SPDXRef-file-1",
       "checksums": [
         {
           "algorithm": "SHA256",
           "checksumValue": "9dc94e9e5d78821c81c61501f3b17e0204c307c9d46819222058b3a27f5a2f82"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./fix-find-xsimd.patch",
+      "SPDXID": "SPDXRef-file-2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6abbf2abc4f19cc12e94b975d94829baf2c7d52d94a7995347357f61fdaa60a7"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./portfile.cmake",
+      "SPDXID": "SPDXRef-file-3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "18ed53d97ea9b0502f1512e86ec220c21f48e6c1be69c974c9ee70baad178faf"
         }
       ],
       "licenseConcluded": "NOASSERTION",
