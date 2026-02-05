@@ -64,8 +64,17 @@ add_example(detection_publisher src/detection_publisher.cpp)
 add_example(thermal_publisher src/thermal_publisher.cpp)
 add_example(tof_publisher src/tof_publisher.cpp)
 add_example(tof_rgbd src/tof_rgbd.cpp)
+# add_example(stereo_imu_publisher src/stereo_imu_publisher.cpp)
 # add_example(odom_publisher src/odom_publisher.cpp)
 # add_example(slam src/slam.cpp)
+
+add_executable(stereo_imu_publisher
+  src/stereo_imu_publisher.cpp
+)
+target_link_libraries(stereo_imu_publisher
+  depthai::core
+  ${dependencies}
+)
 
 install(
   TARGETS rgbd_spatial_detections
@@ -81,8 +90,18 @@ install(
           tof_publisher
           tof_rgbd
           thermal_publisher
+          stereo_imu_publisher
           # odom_publisher
           # slam
   DESTINATION lib/${PROJECT_NAME})
+
+install(
+  FILES 
+    /workspace/src/depthai-ros/depthai-core-arm64-linux/lib/libdepthai-core.so
+    /workspace/src/depthai-ros/depthai-core-arm64-linux/lib/libusb-1.0.so
+  DESTINATION lib)
+
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+
 
 ament_package()

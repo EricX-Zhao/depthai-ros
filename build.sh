@@ -85,10 +85,6 @@ INSTALL_DIR=${WORKSPACE}/output/${TARGET_PLATFORM}/install
 BUILD_DIR=${WORKSPACE}/output/${TARGET_PLATFORM}/build
 LOG_DIR=${WORKSPACE}/output/${TARGET_PLATFORM}/log
 
-CMAKE_ARGS+=" -Ddepthai_DIR=/depthai_ws/src/depthai-core/build_arm64/vcpkg_installed/arm64-linux/lib/cmake/depthai"
-CMAKE_ARGS+=" -Dlibnop_DIR=/depthai_ws/src/depthai-core/build_arm64/vcpkg_installed/arm64-linux/lib/cmake/libnop"
-CMAKE_ARGS+=" -DXLink_DIR=/depthai_ws/src/depthai-core/build_arm64/vcpkg_installed/arm64-linux/lib/cmake/XLink"
-
 
 echo "TARGET: ${TARGET_PLATFORM}"
 echo "TOOLCHAIN_FILE: ${TOOLCHAIN_FILE}"

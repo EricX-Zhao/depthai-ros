@@ -15,7 +15,7 @@
 #include "depthai_ros_driver/dai_nodes/sensors/stereo.hpp"
 #include "depthai_ros_driver/dai_nodes/sensors/thermal.hpp"
 #include "depthai_ros_driver/dai_nodes/sensors/tof.hpp"
-#include "depthai_ros_driver/dai_nodes/sensors/vio.hpp"
+// #include "depthai_ros_driver/dai_nodes/sensors/vio.hpp"
 #include "depthai_ros_driver/pipeline/base_pipeline.hpp"
 #include "depthai_ros_driver/utils.hpp"
 #include "rclcpp/node.hpp"
@@ -63,7 +63,7 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> RGBD::createPipeline(std::shar
     if(checkForImu(ph, device, node->get_logger())) {
         auto imu = std::make_unique<dai_nodes::Imu>("imu", node, pipeline, device, rsCompat);
         if(ph->getParam<bool>("i_enable_vio")) {
-            auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *stereo, *imu);
+            // auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *stereo, *imu);
             // if(ph->getParam<bool>("i_enable_slam")) {
             //     std::unique_ptr<dai_nodes::Slam> slam;
             //     if(stereo->getSocketID() == stereo->getLeftSensor()->getSocketID()) {
@@ -77,7 +77,8 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> RGBD::createPipeline(std::shar
             //     }
             //     daiNodes.push_back(std::move(slam));
             // }
-            daiNodes.push_back(std::move(vio));
+            // daiNodes.push_back(std::move(vio));
+            throw std::runtime_error("Not support vio!!");
         }
         daiNodes.push_back(std::move(imu));
     }
@@ -105,8 +106,9 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> RGBStereo::createPipeline(std:
     if(checkForImu(ph, device, node->get_logger())) {
         auto imu = std::make_unique<dai_nodes::Imu>("imu", node, pipeline, device, rsCompat);
         if(ph->getParam<bool>("i_enable_vio")) {
-            auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *left, *right, *imu);
-            daiNodes.push_back(std::move(vio));
+            // auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *left, *right, *imu);
+            // daiNodes.push_back(std::move(vio));
+            throw std::runtime_error("Not support vio!!");
         }
         daiNodes.push_back(std::move(imu));
     }
@@ -131,8 +133,9 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> Stereo::createPipeline(std::sh
     if(checkForImu(ph, device, node->get_logger())) {
         auto imu = std::make_unique<dai_nodes::Imu>("imu", node, pipeline, device, rsCompat);
         if(ph->getParam<bool>("i_enable_vio")) {
-            auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *left, *right, *imu);
-            daiNodes.push_back(std::move(vio));
+            // auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *left, *right, *imu);
+            // daiNodes.push_back(std::move(vio));
+            throw std::runtime_error("Not support vio!!");
         }
         daiNodes.push_back(std::move(imu));
     }
@@ -153,7 +156,7 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> Depth::createPipeline(std::sha
     if(checkForImu(ph, device, node->get_logger())) {
         auto imu = std::make_unique<dai_nodes::Imu>("imu", node, pipeline, device, rsCompat);
         if(ph->getParam<bool>("i_enable_vio")) {
-            auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *stereo, *imu);
+            // auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *stereo, *imu);
             // if(ph->getParam<bool>("i_enable_slam")) {
             //     std::unique_ptr<dai_nodes::Slam> slam;
             //     if(stereo->getSocketID() == stereo->getLeftSensor()->getSocketID()) {
@@ -166,7 +169,8 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> Depth::createPipeline(std::sha
             //
             //     daiNodes.push_back(std::move(slam));
             // }
-            daiNodes.push_back(std::move(vio));
+            // daiNodes.push_back(std::move(vio));
+            throw std::runtime_error("Not support vio!!");
         }
         daiNodes.push_back(std::move(imu));
     }
@@ -221,8 +225,9 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> DepthToF::createPipeline(std::
     if(checkForImu(ph, device, node->get_logger())) {
         auto imu = std::make_unique<dai_nodes::Imu>("imu", node, pipeline, device, rsCompat);
         if(ph->getParam<bool>("i_enable_vio")) {
-            auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *stereo, *imu);
-            daiNodes.push_back(std::move(vio));
+            // auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *stereo, *imu);
+            // daiNodes.push_back(std::move(vio));
+            throw std::runtime_error("Not support vio!!");
         }
         daiNodes.push_back(std::move(imu));
     }
@@ -249,8 +254,9 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> StereoToF::createPipeline(std:
     if(checkForImu(ph, device, node->get_logger())) {
         auto imu = std::make_unique<dai_nodes::Imu>("imu", node, pipeline, device, rsCompat);
         if(ph->getParam<bool>("i_enable_vio")) {
-            auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *left, *right, *imu);
-            daiNodes.push_back(std::move(vio));
+            // auto vio = std::make_unique<dai_nodes::Vio>("vio", node, pipeline, device, rsCompat, *left, *right, *imu);
+            // daiNodes.push_back(std::move(vio));
+            throw std::runtime_error("Not support vio!!");
         }
         daiNodes.push_back(std::move(imu));
     }

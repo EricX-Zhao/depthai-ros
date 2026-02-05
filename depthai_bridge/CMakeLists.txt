@@ -96,7 +96,7 @@ target_link_libraries(
 target_include_directories(
   depthai_bridge
   PUBLIC
-    /depthai_ws/src/depthai-core/build_arm64/vcpkg_installed/arm64-linux/include
+    ${libnop_INCLUDE_DIRS}
 )
 
 ament_export_targets(depthai_bridgeTargets HAS_LIBRARY_TARGET)

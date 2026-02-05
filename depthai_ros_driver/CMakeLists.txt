@@ -19,7 +19,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake_auto REQUIRED)
-find_package(backward_ros REQUIRED)
+# find_package(backward_ros REQUIRED)
 ament_auto_find_build_dependencies()
 
 include_directories(include)
@@ -38,7 +38,7 @@ add_library(
   src/param_handlers/sensor_param_handler.cpp
   src/param_handlers/feature_tracker_param_handler.cpp
   src/param_handlers/rgbd_param_handler.cpp
-  src/param_handlers/vio_param_handler.cpp
+  # src/param_handlers/vio_param_handler.cpp
   # src/param_handlers/slam_param_handler.cpp
   src/param_handlers/stereo_param_handler.cpp
   src/param_handlers/thermal_param_handler.cpp
@@ -70,7 +70,7 @@ add_library(
   src/dai_nodes/sensors/stereo.cpp
   src/dai_nodes/sensors/thermal.cpp
   src/dai_nodes/sensors/rgbd.cpp
-  src/dai_nodes/sensors/vio.cpp
+  # src/dai_nodes/sensors/vio.cpp
   # src/dai_nodes/sensors/slam.cpp
   src/dai_nodes/sensors/tof.cpp
   src/dai_nodes/sensors/sync.cpp)
@@ -147,6 +147,14 @@ install(
 
 install(EXPORT ${PROJECT_NAME}Targets DESTINATION share/${PROJECT_NAME}/cmake)
 install(TARGETS driver_node DESTINATION lib/${PROJECT_NAME})
+
+install(
+  FILES 
+    /workspace/src/depthai-ros/depthai-core-arm64-linux/lib/libdepthai-core.so
+    /workspace/src/depthai-ros/depthai-core-arm64-linux/lib/libusb-1.0.so
+  DESTINATION lib)
+
+
 ament_python_install_package(${PROJECT_NAME})
 
 ament_export_include_directories(include)

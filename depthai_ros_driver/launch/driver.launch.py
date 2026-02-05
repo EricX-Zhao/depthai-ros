@@ -64,7 +64,7 @@ def launch_setup(context, *args, **kwargs):
     use_composition = LaunchConfiguration("rsp_use_composition", default="true")
     imu_from_descr = LaunchConfiguration("imu_from_descr", default="false")
     publish_tf_from_calibration = LaunchConfiguration(
-        "publish_tf_from_calibration", default="true"
+        "publish_tf_from_calibration", default="false"
     )
     override_cam_model = LaunchConfiguration("override_cam_model", default="false")
     params_file = ParameterFile(LaunchConfiguration("params_file"), allow_substs=True)
@@ -182,32 +182,46 @@ def launch_setup(context, *args, **kwargs):
             output="log",
             arguments=["-d", LaunchConfiguration("rviz_config")],
         ),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(urdf_launch_dir, "urdf_launch.py")
-            ),
-            launch_arguments={
-                "namespace": namespace,
-                "tf_prefix": name,
-                "camera_model": camera_model,
-                "base_frame": name,
-                "parent_frame": parent_frame,
-                "cam_pos_x": cam_pos_x,
-                "cam_pos_y": cam_pos_y,
-                "cam_pos_z": cam_pos_z,
-                "cam_roll": cam_roll,
-                "cam_pitch": cam_pitch,
-                "cam_yaw": cam_yaw,
-                "use_composition": use_composition,
-                "use_base_descr": publish_tf_from_calibration,
-                "rs_compat": rs_compat,
-            }.items(),
-        ),
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource(
+        #         os.path.join(urdf_launch_dir, "urdf_launch.py")
+        #     ),
+        #     launch_arguments={
+        #         "namespace": namespace,
+        #         "tf_prefix": name,
+        #         "camera_model": camera_model,
+        #         "base_frame": name,
+        #         "parent_frame": parent_frame,
+        #         "cam_pos_x": cam_pos_x,
+        #         "cam_pos_y": cam_pos_y,
+        #         "cam_pos_z": cam_pos_z,
+        #         "cam_roll": cam_roll,
+        #         "cam_pitch": cam_pitch,
+        #         "cam_yaw": cam_yaw,
+        #         "use_composition": use_composition,
+        #         "use_base_descr": publish_tf_from_calibration,
+        #         "rs_compat": rs_compat,
+        #     }.items(),
+        # ),
+        # Node(
+        #     package="depthai_ros_driver",
+        #     executable="driver_node",
+        #     name="driver_node",
+        #     namespace=namespace,
+        #     parameters=[
+        #         params_file,
+        #         params,
+        #         parameter_overrides,
+        #     ],
+        #     arguments=["--ros-args", "--log-level", log_level],
+        #     prefix=[launch_prefix],
+        #     output="log",
+        # ),
         ComposableNodeContainer(
             name=f"{name}_container",
             namespace=namespace,
             package="rclcpp_components",
-            executable="component_container",
+            executable="component_container_isolated",
             composable_node_descriptions=[
                 ComposableNode(
                     package="depthai_ros_driver",
@@ -255,7 +269,7 @@ def generate_launch_description():
         DeclareLaunchArgument("rsp_use_composition", default_value="true"),
         DeclareLaunchArgument(
             "publish_tf_from_calibration",
-            default_value="true",
+            default_value="false",
             description="Enables TF publishing from camera calibration file.",
         ),
         DeclareLaunchArgument(
@@ -281,8 +295,8 @@ def generate_launch_description():
             description="Enables compatibility with RealSense nodes.",
         ),
         DeclareLaunchArgument("pointcloud.enable", default_value="false"),
-        DeclareLaunchArgument("enable_color", default_value="true"),
-        DeclareLaunchArgument("enable_depth", default_value="true"),
+        DeclareLaunchArgument("enable_color", default_value="false"),
+        DeclareLaunchArgument("enable_depth", default_value="false"),
         DeclareLaunchArgument("enable_infra1", default_value="false"),
         DeclareLaunchArgument("enable_infra2", default_value="false"),
         DeclareLaunchArgument("depth_module.depth_profile", default_value="640,400,30"),

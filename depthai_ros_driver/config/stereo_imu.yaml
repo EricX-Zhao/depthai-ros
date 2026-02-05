@@ -1,0 +1,24 @@
+/oak:
+  ros__parameters:
+    driver:
+      i_publish_tf_from_calibration: false
+    pipeline_gen:
+      i_nn_type: none
+      i_pipeline_type: stereo
+      i_enable_imu: true
+    left:
+      i_resolution: 480p
+      i_fps: 20.0
+      i_update_ros_base_time_on_ros_msg: true
+    right:
+      i_resolution: 480p
+      i_fps: 20.0
+      i_update_ros_base_time_on_ros_msg: true
+    imu:
+      i_update_ros_base_time_on_ros_msg: true
+      i_batch_report_threshold: 5
+      i_max_batch_reports: 10
+      i_enable_rotation: false
+      i_acc_freq: 200
+      i_gyro_freq: 200
+      i_enable_mag: false
