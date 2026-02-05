@@ -1,0 +1,115 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/libusb-arm64-linux-1.0.27#2-a0acacc5-08b3-46e0-b845-e6ccc2a8195b",
+  "name": "libusb:arm64-linux@1.0.27#2 a51288df84c4e7c809ad417eae1ac01b9390424691221947220a900aa26fdd0c",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2025-05-19-ece4c0f6b8fae9e94513d544c7aa753dd2c82337"
+    ],
+    "created": "2026-02-05T13:18:28Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "DEPENDENCY_MANIFEST_OF",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "libusb",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "1.0.27#2",
+      "downloadLocation": "NOASSERTION",
+      "homepage": "https://github.com/libusb/libusb",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "a cross-platform library to access USB devices",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "libusb:arm64-linux",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "a51288df84c4e7c809ad417eae1ac01b9390424691221947220a900aa26fdd0c",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-0",
+      "name": "luxonis/libusb",
+      "downloadLocation": "git+https://github.com/luxonis/libusb@b7e4548958325b18feb73977163ad44398099534",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "b0fd00fe623a6fe527046002d94201cfe2dffe589bd77aa88473f25960e3ce7206a90290ee4fe66fa2e91766c5f6585379ba2b008e9fc7b33da43763127a4ef2"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./portfile.cmake",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9282d45c111a55397c2c2e5e4371bdfb5e02d462a9459912c4aaa044ae6a5a7b"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./vcpkg.json",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "1d4eec58ab1ce1a9233a828e014cf854d73df8f9adbd8c592dd0d5b150ff4a36"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

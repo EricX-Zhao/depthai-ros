@@ -1,0 +1,114 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/libnop-arm64-linux-1.0-ec8f75a-20cfe147-82da-44f5-926c-fa0d84341ae5",
+  "name": "libnop:arm64-linux@1.0-ec8f75a 99fae163f52d7b340ef5ef7d4e68d2b44f832099e4db9d4833d9cbaaacd1e02d",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2025-05-19-ece4c0f6b8fae9e94513d544c7aa753dd2c82337"
+    ],
+    "created": "2026-02-05T13:18:26Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "DEPENDENCY_MANIFEST_OF",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "libnop",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "1.0-ec8f75a",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "libnop: C++ Native Object Protocols",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "libnop:arm64-linux",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "99fae163f52d7b340ef5ef7d4e68d2b44f832099e4db9d4833d9cbaaacd1e02d",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-0",
+      "name": "luxonis/libnop",
+      "downloadLocation": "git+https://github.com/luxonis/libnop@00938ba06ad513e4e0a12f9f2ec41cecad7e40d1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "1377cc955148b9106e173d5877623df4f18400234ad2a3c0e6ab12970c53886478520f7bc591f4e8d89ae1a325c4cd030063043795e34f99ec6efe77457c6664"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./portfile.cmake",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "280bfe2107824a8abefedb4f06cbf8a3033a042d25d838eec377bc9376488c65"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./vcpkg.json",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3fb9f87beb7285ac83b918e7bde67c209056264c2796aaea26d87d36270d0eff"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

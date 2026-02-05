@@ -1,0 +1,115 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/psimd-arm64-linux-2021-02-21#2-e96e254a-fb8f-47bd-84a7-87a7371bb197",
+  "name": "psimd:arm64-linux@2021-02-21#2 73a65bda9abc1468356e2caadf71e0b31cc9fec7965cc08562fed5e3a709d4bb",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2025-05-19-ece4c0f6b8fae9e94513d544c7aa753dd2c82337"
+    ],
+    "created": "2026-02-05T13:15:08Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "DEPENDENCY_MANIFEST_OF",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "psimd",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "2021-02-21#2",
+      "downloadLocation": "git+https://github.com/microsoft/vcpkg@c2958518cdbe3f8902fe0b056cf37bf1eec26137",
+      "homepage": "https://github.com/Maratyszcza/psimd",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "Portable 128-bit SIMD intrinsics",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "psimd:arm64-linux",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "73a65bda9abc1468356e2caadf71e0b31cc9fec7965cc08562fed5e3a709d4bb",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-0",
+      "name": "Maratyszcza/psimd",
+      "downloadLocation": "git+https://github.com/Maratyszcza/psimd@072586a71b55b7f8c584153d223e95687148a900",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "a18faea093423dd9fe19ece8b228e011dccce0a2a22222f777ea19b023a13173966d4a8aea01147e8fc58de5d39cffcedeb2221a1572ae52bd5aba1295f86a94"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./portfile.cmake",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9aeeb92e89c18dcfb2978cb10714fc0328bf384827a250675294d3767cda1941"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./vcpkg.json",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3ba77147e7f1a5cb3a0303eb708afdc4b5b202c262d7278b928e30ca979ec766"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

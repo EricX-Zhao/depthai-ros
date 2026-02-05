@@ -1,0 +1,13 @@
+prefix=${pcfiledir}/../..
+# Package Information for pkg-config
+
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/opencv4
+
+Name: OpenCV
+Description: Open Source Computer Vision Library
+Version: 4.11.0
+
+Libs: "-L${exec_prefix}/lib" -lopencv_highgui4 -lopencv_ml4 -lopencv_objdetect4 -lopencv_photo4 -lopencv_stitching4 -lopencv_video4 -lopencv_calib3d4 -lopencv_features2d4 -lopencv_flann4 -lopencv_videoio4 -lopencv_imgcodecs4 -lopencv_imgproc4 -lopencv_core4 "-L${exec_prefix}/lib/manual-link/opencv4_thirdparty" "-L${prefix}/lib" -lwebpdecoder -lwebp -lwebpdemux -lwebpmux -lsharpyuv -lpng16 -ltiff -llzma -ljpeg -lz -lquirc -ldl -lm -lpthread -lrt
+Cflags: "-I${includedir}"

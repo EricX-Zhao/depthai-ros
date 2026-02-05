@@ -1,0 +1,8 @@
+prefix=${pcfiledir}/../..
+includedir=${prefix}/include
+
+Name: xtl
+Description: Basic tools (containers, algorithms) used by other quantstack packages.
+Version: 0.8.0
+
+Cflags: "-I${includedir}"

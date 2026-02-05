@@ -26,7 +26,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(stereo_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
-find_package(backward_ros REQUIRED)
+# find_package(backward_ros REQUIRED)
 
 set(dependencies
     ${camera_info_manager_TARGETS}
@@ -64,7 +64,7 @@ add_example(detection_publisher src/detection_publisher.cpp)
 add_example(thermal_publisher src/thermal_publisher.cpp)
 add_example(tof_publisher src/tof_publisher.cpp)
 add_example(tof_rgbd src/tof_rgbd.cpp)
-add_example(odom_publisher src/odom_publisher.cpp)
+# add_example(odom_publisher src/odom_publisher.cpp)
 # add_example(slam src/slam.cpp)
 
 install(
@@ -81,7 +81,7 @@ install(
           tof_publisher
           tof_rgbd
           thermal_publisher
-          odom_publisher
+          # odom_publisher
           # slam
   DESTINATION lib/${PROJECT_NAME})
 
