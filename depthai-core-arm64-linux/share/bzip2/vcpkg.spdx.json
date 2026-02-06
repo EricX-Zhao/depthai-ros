@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/bzip2-arm64-linux-1.0.8#6-6848dcc4-029b-47bf-b4a3-22cca40a2a3f",
-  "name": "bzip2:arm64-linux@1.0.8#6 d5067be4407f497dadeba33a4747ba58f5b019dab8090817e173ea7f80dfe50f",
+  "documentNamespace": "https://spdx.org/spdxdocs/bzip2-arm64-linux-1.0.8#6-8a40e9aa-24fe-4d6a-969f-1fdb5812e164",
+  "name": "bzip2:arm64-linux@1.0.8#6 603b26589f8fb10e81dbf907538f70a98d284fc382ba6938147c61804bde330a",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-2025-05-19-ece4c0f6b8fae9e94513d544c7aa753dd2c82337"
     ],
-    "created": "2026-02-05T21:01:03Z"
+    "created": "2026-02-06T06:59:16Z"
   },
   "relationships": [
     {
@@ -58,11 +58,6 @@
       "relatedSpdxElement": "SPDXRef-port"
     },
     {
-      "spdxElementId": "SPDXRef-file-0",
-      "relationshipType": "DEPENDENCY_MANIFEST_OF",
-      "relatedSpdxElement": "SPDXRef-port"
-    },
-    {
       "spdxElementId": "SPDXRef-file-1",
       "relationshipType": "CONTAINED_BY",
       "relatedSpdxElement": "SPDXRef-port"
@@ -70,6 +65,11 @@
     {
       "spdxElementId": "SPDXRef-file-2",
       "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-2",
+      "relationshipType": "DEPENDENCY_MANIFEST_OF",
       "relatedSpdxElement": "SPDXRef-port"
     },
     {
@@ -104,7 +104,7 @@
     {
       "name": "bzip2:arm64-linux",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "d5067be4407f497dadeba33a4747ba58f5b019dab8090817e173ea7f80dfe50f",
+      "versionInfo": "603b26589f8fb10e81dbf907538f70a98d284fc382ba6938147c61804bde330a",
       "downloadLocation": "NONE",
       "licenseConcluded": "bzip2-1.0.6",
       "licenseDeclared": "NOASSERTION",
@@ -129,32 +129,8 @@
   ],
   "files": [
     {
-      "fileName": "./vcpkg.json",
-      "SPDXID": "SPDXRef-file-0",
-      "checksums": [
-        {
-          "algorithm": "SHA256",
-          "checksumValue": "35206824e39f99a709f69465e685a93bca265aa9c83c812d1fa18f3b536a75d9"
-        }
-      ],
-      "licenseConcluded": "NOASSERTION",
-      "copyrightText": "NOASSERTION"
-    },
-    {
-      "fileName": "./usage",
-      "SPDXID": "SPDXRef-file-1",
-      "checksums": [
-        {
-          "algorithm": "SHA256",
-          "checksumValue": "75d339011fc11a43ee5093142ca1e8cb5e54db2ac93822abc5de694cda5a9881"
-        }
-      ],
-      "licenseConcluded": "NOASSERTION",
-      "copyrightText": "NOASSERTION"
-    },
-    {
       "fileName": "./portfile.cmake",
-      "SPDXID": "SPDXRef-file-2",
+      "SPDXID": "SPDXRef-file-0",
       "checksums": [
         {
           "algorithm": "SHA256",
@@ -166,11 +142,35 @@
     },
     {
       "fileName": "./fix-import-export-macros.patch",
-      "SPDXID": "SPDXRef-file-3",
+      "SPDXID": "SPDXRef-file-1",
       "checksums": [
         {
           "algorithm": "SHA256",
           "checksumValue": "38918c1257c884cc5cde39d9f4235d0e71574f20c7e5ec686a506612f647495e"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./vcpkg.json",
+      "SPDXID": "SPDXRef-file-2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "35206824e39f99a709f69465e685a93bca265aa9c83c812d1fa18f3b536a75d9"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./CMakeLists.txt",
+      "SPDXID": "SPDXRef-file-3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "23070639ab0347317bd4fd86a62f3f18ed48208e8fe23a3b45225dc2deb5d873"
         }
       ],
       "licenseConcluded": "NOASSERTION",
@@ -189,12 +189,12 @@
       "copyrightText": "NOASSERTION"
     },
     {
-      "fileName": "./CMakeLists.txt",
+      "fileName": "./usage",
       "SPDXID": "SPDXRef-file-5",
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "23070639ab0347317bd4fd86a62f3f18ed48208e8fe23a3b45225dc2deb5d873"
+          "checksumValue": "75d339011fc11a43ee5093142ca1e8cb5e54db2ac93822abc5de694cda5a9881"
         }
       ],
       "licenseConcluded": "NOASSERTION",

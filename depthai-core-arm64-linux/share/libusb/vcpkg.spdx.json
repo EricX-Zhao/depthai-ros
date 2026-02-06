@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/libusb-arm64-linux-1.0.27#2-de9bb7d5-80ac-4a45-8348-88c727b4920a",
-  "name": "libusb:arm64-linux@1.0.27#2 2d96a6e50ee9fdfbdc267b7ba13f26718d89bc88149a8524ffc2c831bbbade5d",
+  "documentNamespace": "https://spdx.org/spdxdocs/libusb-arm64-linux-1.0.27#2-e256db9e-f6ca-43da-9495-20a6211368b4",
+  "name": "libusb:arm64-linux@1.0.27#2 28d0cb97e5c0aabae1b912dcfbeca353918d46b496a9da8e2ed29abc1764c51b",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-2025-05-19-ece4c0f6b8fae9e94513d544c7aa753dd2c82337"
     ],
-    "created": "2026-02-05T21:02:43Z"
+    "created": "2026-02-06T07:03:07Z"
   },
   "relationships": [
     {
@@ -64,7 +64,7 @@
     {
       "name": "libusb:arm64-linux",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "2d96a6e50ee9fdfbdc267b7ba13f26718d89bc88149a8524ffc2c831bbbade5d",
+      "versionInfo": "28d0cb97e5c0aabae1b912dcfbeca353918d46b496a9da8e2ed29abc1764c51b",
       "downloadLocation": "NONE",
       "licenseConcluded": "LGPL-2.1-or-later",
       "licenseDeclared": "NOASSERTION",

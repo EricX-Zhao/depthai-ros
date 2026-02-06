@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/eigen3-arm64-linux-3.4.0#5-beaf05b9-4ff2-4190-8e3e-d67e0cb81e34",
-  "name": "eigen3:arm64-linux@3.4.0#5 2f4253b420e8e0985c9624e3f16b6d2cfd492c1956cfeeab2e06893d5b254196",
+  "documentNamespace": "https://spdx.org/spdxdocs/eigen3-arm64-linux-3.4.0#5-c50f219d-1a32-4141-bbdc-20f616d4ec13",
+  "name": "eigen3:arm64-linux@3.4.0#5 f547d902be9923943f6aec87dbe49a48b31ec09843cc91771463b7b475591033",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-2025-05-19-ece4c0f6b8fae9e94513d544c7aa753dd2c82337"
     ],
-    "created": "2026-02-05T21:01:06Z"
+    "created": "2026-02-06T07:00:25Z"
   },
   "relationships": [
     {
@@ -53,11 +53,6 @@
       "relatedSpdxElement": "SPDXRef-port"
     },
     {
-      "spdxElementId": "SPDXRef-file-0",
-      "relationshipType": "DEPENDENCY_MANIFEST_OF",
-      "relatedSpdxElement": "SPDXRef-port"
-    },
-    {
       "spdxElementId": "SPDXRef-file-1",
       "relationshipType": "CONTAINED_BY",
       "relatedSpdxElement": "SPDXRef-port"
@@ -65,6 +60,11 @@
     {
       "spdxElementId": "SPDXRef-file-2",
       "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-2",
+      "relationshipType": "DEPENDENCY_MANIFEST_OF",
       "relatedSpdxElement": "SPDXRef-port"
     },
     {
@@ -94,7 +94,7 @@
     {
       "name": "eigen3:arm64-linux",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "2f4253b420e8e0985c9624e3f16b6d2cfd492c1956cfeeab2e06893d5b254196",
+      "versionInfo": "f547d902be9923943f6aec87dbe49a48b31ec09843cc91771463b7b475591033",
       "downloadLocation": "NONE",
       "licenseConcluded": "MPL-2.0",
       "licenseDeclared": "NOASSERTION",
@@ -118,44 +118,8 @@
   ],
   "files": [
     {
-      "fileName": "./vcpkg.json",
-      "SPDXID": "SPDXRef-file-0",
-      "checksums": [
-        {
-          "algorithm": "SHA256",
-          "checksumValue": "1552c959c3600a2fd6d05ed79ea028da51216a565960dfdb20b05e252292be00"
-        }
-      ],
-      "licenseConcluded": "NOASSERTION",
-      "copyrightText": "NOASSERTION"
-    },
-    {
-      "fileName": "./fix-vectorized-reductions-half.patch",
-      "SPDXID": "SPDXRef-file-1",
-      "checksums": [
-        {
-          "algorithm": "SHA256",
-          "checksumValue": "ca4b1fd2f2a8e7805d167157478eb63f42ae852e00697720730dc3e58e73e025"
-        }
-      ],
-      "licenseConcluded": "NOASSERTION",
-      "copyrightText": "NOASSERTION"
-    },
-    {
-      "fileName": "./update-warning-suppression-to-latest.patch",
-      "SPDXID": "SPDXRef-file-2",
-      "checksums": [
-        {
-          "algorithm": "SHA256",
-          "checksumValue": "f1a340d2833b33d828d494c2120fdd110e543857cce0596835f289d53e1b511c"
-        }
-      ],
-      "licenseConcluded": "NOASSERTION",
-      "copyrightText": "NOASSERTION"
-    },
-    {
       "fileName": "./portfile.cmake",
-      "SPDXID": "SPDXRef-file-3",
+      "SPDXID": "SPDXRef-file-0",
       "checksums": [
         {
           "algorithm": "SHA256",
@@ -167,11 +131,47 @@
     },
     {
       "fileName": "./remove_configure_checks.patch",
-      "SPDXID": "SPDXRef-file-4",
+      "SPDXID": "SPDXRef-file-1",
       "checksums": [
         {
           "algorithm": "SHA256",
           "checksumValue": "60acd9d6811fb26f44bef80ef6f7d852f2b2d622157168076d560f48419edac4"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./vcpkg.json",
+      "SPDXID": "SPDXRef-file-2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "1552c959c3600a2fd6d05ed79ea028da51216a565960dfdb20b05e252292be00"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./fix-vectorized-reductions-half.patch",
+      "SPDXID": "SPDXRef-file-3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "ca4b1fd2f2a8e7805d167157478eb63f42ae852e00697720730dc3e58e73e025"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./update-warning-suppression-to-latest.patch",
+      "SPDXID": "SPDXRef-file-4",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f1a340d2833b33d828d494c2120fdd110e543857cce0596835f289d53e1b511c"
         }
       ],
       "licenseConcluded": "NOASSERTION",

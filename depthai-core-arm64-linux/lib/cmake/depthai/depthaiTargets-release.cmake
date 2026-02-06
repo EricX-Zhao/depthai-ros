@@ -8,6 +8,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 # Import target "depthai::core" for configuration "Release"
 set_property(TARGET depthai::core APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(depthai::core PROPERTIES
+  IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "spdlog::spdlog"
   IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libdepthai-core.so"
   IMPORTED_SONAME_RELEASE "libdepthai-core.so"
   )
