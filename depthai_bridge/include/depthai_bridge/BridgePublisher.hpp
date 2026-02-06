@@ -325,7 +325,7 @@ void BridgePublisher<RosMsg, DaiMsg>::publishHelper(std::shared_ptr<DaiMsg> inDa
                 }
             }
 
-            if(infoSubCount > 0 && (std::is_same_v<RosMsg, ImageMsgs::CompressedImage> || std::is_same_v<RosMsg, FFMPEGMsgs::FFMPEGPacket>)) {
+            if(infoSubCount > 0 || (std::is_same_v<RosMsg, ImageMsgs::CompressedImage> || std::is_same_v<RosMsg, FFMPEGMsgs::FFMPEGPacket>)) {
                 auto localCameraInfo = camInfoManager->getCameraInfo();
                 localCameraInfo.header.stamp = currMsg.header.stamp;
                 localCameraInfo.header.frame_id = currMsg.header.frame_id;
