@@ -91,12 +91,13 @@ target_link_libraries(
   depthai::core
   opencv_imgproc
   opencv_highgui
-  opencv_calib3d)
+  opencv_calib3d
+)
 
 target_include_directories(
   depthai_bridge
   PUBLIC
-    ${libnop_INCLUDE_DIRS}
+    /workspace/src/depthai-ros/depthai-core-arm64-linux/include
 )
 
 ament_export_targets(depthai_bridgeTargets HAS_LIBRARY_TARGET)

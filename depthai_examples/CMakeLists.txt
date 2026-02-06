@@ -77,22 +77,23 @@ target_link_libraries(stereo_imu_publisher
 )
 
 install(
-  TARGETS rgbd_spatial_detections
-          feature_tracker
-          converter_to_cv
-          imu_publisher
-          rgb_publisher
-          rgbd_publisher
-          rgb_subscriber
-          rgb_compressed_publisher
-          disparity_publisher
-          detection_publisher
-          tof_publisher
-          tof_rgbd
-          thermal_publisher
-          stereo_imu_publisher
-          # odom_publisher
-          # slam
+  TARGETS 
+    # rgbd_spatial_detections
+    # feature_tracker
+    # converter_to_cv
+    imu_publisher
+    # rgb_publisher
+    rgbd_publisher
+    # rgb_subscriber
+    # rgb_compressed_publisher
+    # disparity_publisher
+    # detection_publisher
+    # tof_publisher
+    # tof_rgbd
+    # thermal_publisher
+    stereo_imu_publisher
+    # odom_publisher
+    # slam
   DESTINATION lib/${PROJECT_NAME})
 
 install(

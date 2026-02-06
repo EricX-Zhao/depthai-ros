@@ -103,10 +103,11 @@ int main(int argc, char** argv) {
     auto left_pub = std::make_unique<depthai_bridge::BridgePublisher<sensor_msgs::msg::Image, dai::ImgFrame>>(
         left_queue,
         node,
-        "left/image",
+        "left/image_raw",
         [left_conv](std::shared_ptr<dai::ImgFrame> msg, std::deque<sensor_msgs::msg::Image>& rosMsgs) { left_conv->toRosMsg(msg, rosMsgs); },
         5,
         left_cam_info,
+        ""
         "left");
     left_pub->addPublisherCallback();
     
@@ -118,12 +119,15 @@ int main(int argc, char** argv) {
     auto right_pub = std::make_unique<depthai_bridge::BridgePublisher<sensor_msgs::msg::Image, dai::ImgFrame>>(
         right_queue,
         node,
-        "right/image",
+        "right/image_raw",
         [right_conv](std::shared_ptr<dai::ImgFrame> msg, std::deque<sensor_msgs::msg::Image>& rosMsgs) { right_conv->toRosMsg(msg, rosMsgs); },
         5,
         right_cam_info,
+        "",
         "right");
     right_pub->addPublisherCallback();
+    
+    rclcpp::on_shutdown([&]() { pipeline.stop(); });
     
     rclcpp::Rate r(20.0);
     while(rclcpp::ok() && pipeline.isRunning()) {
