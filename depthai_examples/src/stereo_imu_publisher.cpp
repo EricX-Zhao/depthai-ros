@@ -53,6 +53,11 @@ int main(int argc, char** argv) {
 
     dai::Pipeline pipeline(device);
 
+    auto sockets = device->getConnectedCameras();
+    for (const auto& sock : sockets) {
+        RCLCPP_INFO(node->get_logger(), "Cam sock : %d", (int)sock);
+    }
+
     int32_t width = node->declare_parameter<int32_t>("width", 640);
     int32_t height = node->declare_parameter<int32_t>("height", 480);
     int32_t fps = node->declare_parameter<int32_t>("fps", 20);
@@ -77,8 +82,8 @@ int main(int argc, char** argv) {
     imu->setBatchReportThreshold(3);
     imu->setMaxBatchReports(10);
     auto imu_queue = imu->out.createOutputQueue(10, false);
-    auto left_queue = left->requestOutput(std::make_pair(width, height))->createOutputQueue(5, false);
-    auto right_queue = right->requestOutput(std::make_pair(width, height))->createOutputQueue(5, false);
+    auto left_queue = left->requestOutput(std::make_pair(width, height), dai::ImgFrame::Type::GRAY8)->createOutputQueue(5, false);
+    auto right_queue = right->requestOutput(std::make_pair(width, height), dai::ImgFrame::Type::GRAY8)->createOutputQueue(5, false);
 
     pipeline.start();
 
@@ -96,10 +101,10 @@ int main(int argc, char** argv) {
 
     // Create a bridge publisher for left images
     auto left_conv = std::make_shared<depthai_bridge::ImageConverter>(
-        depthai_bridge::getOpticalFrameName(tfPrefix, depthai_bridge::getSocketName(dai::CameraBoardSocket::CAM_A, device->getDeviceName())), false);
+        depthai_bridge::getOpticalFrameName(tfPrefix, depthai_bridge::getSocketName(dai::CameraBoardSocket::CAM_B, device->getDeviceName())), false);
 
     auto calibrationHandler = device->readCalibration();
-    auto left_cam_info = left_conv->calibrationToCameraInfo(calibrationHandler, dai::CameraBoardSocket::CAM_A, width, height);
+    auto left_cam_info = left_conv->calibrationToCameraInfo(calibrationHandler, dai::CameraBoardSocket::CAM_B, width, height);
     auto left_pub = std::make_unique<depthai_bridge::BridgePublisher<sensor_msgs::msg::Image, dai::ImgFrame>>(
         left_queue,
         node,
@@ -107,15 +112,14 @@ int main(int argc, char** argv) {
         [left_conv](std::shared_ptr<dai::ImgFrame> msg, std::deque<sensor_msgs::msg::Image>& rosMsgs) { left_conv->toRosMsg(msg, rosMsgs); },
         5,
         left_cam_info,
-        ""
         "left");
     left_pub->addPublisherCallback();
     
     // Create a bridge publisher for left images
     auto right_conv = std::make_shared<depthai_bridge::ImageConverter>(
-        depthai_bridge::getOpticalFrameName(tfPrefix, depthai_bridge::getSocketName(dai::CameraBoardSocket::CAM_B, device->getDeviceName())), false);
+        depthai_bridge::getOpticalFrameName(tfPrefix, depthai_bridge::getSocketName(dai::CameraBoardSocket::CAM_C, device->getDeviceName())), false);
 
-    auto right_cam_info = right_conv->calibrationToCameraInfo(calibrationHandler, dai::CameraBoardSocket::CAM_B, width, height);
+    auto right_cam_info = right_conv->calibrationToCameraInfo(calibrationHandler, dai::CameraBoardSocket::CAM_C, width, height);
     auto right_pub = std::make_unique<depthai_bridge::BridgePublisher<sensor_msgs::msg::Image, dai::ImgFrame>>(
         right_queue,
         node,
@@ -123,7 +127,6 @@ int main(int argc, char** argv) {
         [right_conv](std::shared_ptr<dai::ImgFrame> msg, std::deque<sensor_msgs::msg::Image>& rosMsgs) { right_conv->toRosMsg(msg, rosMsgs); },
         5,
         right_cam_info,
-        "",
         "right");
     right_pub->addPublisherCallback();
     

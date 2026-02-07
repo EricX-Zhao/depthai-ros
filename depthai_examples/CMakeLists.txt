@@ -103,6 +103,7 @@ install(
   DESTINATION lib)
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
-
+install(FILES launch/start.sh
+        DESTINATION .)
 
 ament_package()
