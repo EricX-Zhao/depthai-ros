@@ -90,6 +90,7 @@ int main(int argc, char** argv) {
     // Create a bridge publisher for IMU
     depthai_bridge::ImuSyncMethod imuMode = depthai_bridge::ImuSyncMethod::COPY;
     auto imuConv = std::make_shared<depthai_bridge::ImuConverter>(depthai_bridge::getFrameName(tfPrefix, "imu_frame"), imuMode);
+    imuConv->setUpdateRosBaseTimeOnToRosMsg(true);
     auto imuPub = std::make_unique<depthai_bridge::BridgePublisher<sensor_msgs::msg::Imu, dai::IMUData>>(
         imu_queue,
         node,
@@ -102,7 +103,7 @@ int main(int argc, char** argv) {
     // Create a bridge publisher for left images
     auto left_conv = std::make_shared<depthai_bridge::ImageConverter>(
         depthai_bridge::getOpticalFrameName(tfPrefix, depthai_bridge::getSocketName(dai::CameraBoardSocket::CAM_B, device->getDeviceName())), false);
-
+    left_conv->setUpdateRosBaseTimeOnToRosMsg(true);
     auto calibrationHandler = device->readCalibration();
     auto left_cam_info = left_conv->calibrationToCameraInfo(calibrationHandler, dai::CameraBoardSocket::CAM_B, width, height);
     auto left_pub = std::make_unique<depthai_bridge::BridgePublisher<sensor_msgs::msg::Image, dai::ImgFrame>>(
@@ -115,9 +116,10 @@ int main(int argc, char** argv) {
         "left");
     left_pub->addPublisherCallback();
     
-    // Create a bridge publisher for left images
+    // Create a bridge publisher for right images
     auto right_conv = std::make_shared<depthai_bridge::ImageConverter>(
         depthai_bridge::getOpticalFrameName(tfPrefix, depthai_bridge::getSocketName(dai::CameraBoardSocket::CAM_C, device->getDeviceName())), false);
+    right_conv->setUpdateRosBaseTimeOnToRosMsg(true);
 
     auto right_cam_info = right_conv->calibrationToCameraInfo(calibrationHandler, dai::CameraBoardSocket::CAM_C, width, height);
     auto right_pub = std::make_unique<depthai_bridge::BridgePublisher<sensor_msgs::msg::Image, dai::ImgFrame>>(
