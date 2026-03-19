@@ -28,7 +28,11 @@ int main(int argc, char** argv) {
     RCLCPP_INFO(node->get_logger(), "No ip/ID specified, connecting to the next available device.");
     auto info = dai::Device::getAnyAvailableDevice();
 
-    auto device = std::make_shared<dai::Device>(std::get<1>(info), dai::UsbSpeed::SUPER);
+    int32_t usb_speed = node->declare_parameter<int32_t>("usb_speed", 2);
+    node->get_parameter<int32_t>("usb_speed", usb_speed);
+    RCLCPP_INFO(node->get_logger(), "usb_speed : %d\n", usb_speed);
+
+    auto device = std::make_shared<dai::Device>(std::get<1>(info), dai::UsbSpeed(usb_speed + 1));
 
     RCLCPP_INFO(node->get_logger(), "Driver with ID: %s and Name: %s connected!", device->getDeviceId().c_str(), device->getDeviceInfo().name.c_str());
     auto protocol = device->getDeviceInfo().getXLinkDeviceDesc().protocol;
