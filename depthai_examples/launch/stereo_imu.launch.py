@@ -27,8 +27,9 @@ def generate_launch_description():
         parameters=[
             {'width': 640},
             {'height': 480},
-            {'fps': 20},
-            {'imu_freq': 200}
+            {'fps': 15},
+            {'imu_freq': 150},
+            {'usb_speed': 2},
         ],
         output='both',
         respawn=True
